@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 48" width="1000" height="48" role="img" aria-label="$ man architecture">
+  <defs>
+    <clipPath id="t"><rect x="28" y="12" width="0" height="26">
+      <animate attributeName="width" values="0;172.8" dur="0.80s" begin="0.1s" fill="freeze"/>
+    </rect></clipPath>
+  </defs>
+  <rect x="1" y="1" width="998" height="46" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <text x="28" y="31" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="16" clip-path="url(#t)" xml:space="preserve"><tspan fill="#3fb950">$</tspan><tspan fill="#e6edf3"> man architecture</tspan></text>
+  <rect y="15" width="9" height="20" fill="#58a6ff">
+    <animate attributeName="x" values="28;200.8" dur="0.80s" begin="0.1s" fill="freeze"/>
+    <animate attributeName="opacity" values="1;0" keyTimes="0;0.5" calcMode="discrete" dur="1.1s" begin="0.90s" repeatCount="indefinite"/>
+  </rect>
+</svg>

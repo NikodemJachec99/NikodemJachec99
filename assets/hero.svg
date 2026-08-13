@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" width="1000" height="340" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">nikodem@automee — neofetch</title>
+  <desc id="heroDesc">Okno terminala z wypisanymi informacjami o profilu i przesuwającym się zapisem EKG</desc>
+
+  <defs>
+    <!-- okno przycinajace zamiatanie po sladzie EKG -->
+    <clipPath id="sweep">
+      <rect y="270" width="170" height="64">
+        <animate attributeName="x" values="-170;1000" dur="4.5s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f85149" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#f85149" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f85149" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== okno ===== -->
+  <rect x="1" y="1" width="998" height="338" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <path d="M1,13 a12,12 0 0 1 12,-12 h974 a12,12 0 0 1 12,12 v27 h-998 z" fill="#161b22"/>
+  <line x1="1" y1="40" x2="999" y2="40" stroke="#30363d" stroke-width="1.5"/>
+  <g opacity="0.85">
+    <circle cx="26" cy="20" r="5.5" fill="#f0625b"/>
+    <circle cx="46" cy="20" r="5.5" fill="#f5be4f"/>
+    <circle cx="66" cy="20" r="5.5" fill="#4fc76a"/>
+  </g>
+  <text x="500" y="25" text-anchor="middle" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#8b949e">nikodem@automee: ~</text>
+
+  <!-- ===== polecenie ===== -->
+  <g font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="17">
+    <text x="32" y="72"><tspan fill="#3fb950">$</tspan><tspan fill="#e6edf3">&#160;neofetch</tspan></text>
+  </g>
+
+  <!-- ===== wypis (drukuje sie raz, zostaje) ===== -->
+  <g font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="14">
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.35s" fill="freeze"/>
+      <text x="32" y="108" fill="#8b949e">role</text><text x="180" y="108" fill="#58a6ff" font-weight="600">AI Automation Engineer</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.50s" fill="freeze"/>
+      <text x="32" y="132" fill="#8b949e">builds</text><text x="180" y="132" fill="#e6edf3">voice agents · LLM pipelines · process automation</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.65s" fill="freeze"/>
+      <text x="32" y="156" fill="#8b949e">stack</text><text x="180" y="156" fill="#e6edf3">n8n · FastAPI · NestJS · PostgreSQL · Docker</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.80s" fill="freeze"/>
+      <text x="32" y="180" fill="#8b949e">ai</text><text x="180" y="180" fill="#e6edf3">OpenAI Realtime · Gemini · ElevenLabs · Deepgram</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.95s" fill="freeze"/>
+      <text x="32" y="204" fill="#8b949e">hardware</text><text x="180" y="204" fill="#e6edf3">AEROS — wearable ECG on nRF52840</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.10s" fill="freeze"/>
+      <text x="32" y="228" fill="#8b949e">studies</text><text x="180" y="228" fill="#e6edf3">Medical Informatics @ Wrocław Univ. of Science and Tech.</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.25s" fill="freeze"/>
+      <text x="32" y="252" fill="#8b949e">location</text><text x="180" y="252" fill="#e6edf3">Wrocław, Poland</text></g>
+  </g>
+
+  <line x1="32" y1="272" x2="968" y2="272" stroke="#21262d" stroke-width="1"/>
+
+  <!-- ===== EKG: slad bazowy + zamiatanie ===== -->
+  <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.4s" fill="freeze"/>
+    <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path stroke="#f85149" stroke-opacity="0.18" stroke-width="1.6"
+        d="M32,302 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29"/>
+      <g clip-path="url(#sweep)">
+        <path stroke="url(#fade)" stroke-width="2.2"
+          d="M32,302 h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29
+                   h16 q6,-7 11,0 h9 l6,13 l6,-32 l7,25 l5,-6 h11 q9,-12 17,0 h29"/>
+      </g>
+    </g>
+    <circle cy="302" r="3" fill="#f85149">
+      <animate attributeName="cx" values="-10;1000" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="32" y="330" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#8b949e" letter-spacing="1.5">ecg · aeros</text>
+  </g>
+</svg>
