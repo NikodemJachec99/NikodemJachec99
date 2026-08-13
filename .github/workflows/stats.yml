@@ -1,0 +1,42 @@
+name: Refresh profile stats
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/gen-stats.mjs"
+      - ".github/workflows/stats.yml"
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate stat cards
+        run: node scripts/gen-stats.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOGIN: ${{ github.repository_owner }}
+
+      # Commit tylko gdy dane faktycznie się zmieniły. Push robiony
+      # GITHUB_TOKEN-em nie wyzwala kolejnych workflow, więc nie ma pętli.
+      - name: Commit refreshed cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats.svg assets/langs.svg
+          git diff --staged --quiet && echo "Bez zmian." && exit 0
+          git commit -m "chore: refresh profile stat cards [skip ci]"
+          git push

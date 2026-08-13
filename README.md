@@ -166,12 +166,12 @@ A web-based medical assistant built on an LLM — it runs the initial interview 
 
 <div align="center">
 
-  <img height="180" src="https://github-readme-stats.vercel.app/api?username=NikodemJachec99&show_icons=true&include_all_commits=true&count_private=true&custom_title=GitHub%20Stats&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&icon_color=58A6FF&border_color=30363D&border_radius=10" alt="GitHub stats">
-  <img height="180" src="https://streak-stats.demolab.com?user=NikodemJachec99&background=0D1117&border=30363D&stroke=30363D&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=C9D1D9&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=8B949E&border_radius=10" alt="Commit streak">
+  <img height="190" src="assets/stats.svg" alt="GitHub stats">
+  <img height="190" src="assets/langs.svg" alt="Most used languages">
 
   <br><br>
 
-  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=NikodemJachec99&layout=compact&langs_count=8&custom_title=Most%20Used%20Languages&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&border_color=30363D&border_radius=10" alt="Most used languages">
+  <img height="190" src="https://streak-stats.demolab.com?user=NikodemJachec99&background=0D1117&border=30363D&stroke=30363D&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=C9D1D9&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=8B949E&border_radius=10" alt="Commit streak">
 
   <br><br>
 
