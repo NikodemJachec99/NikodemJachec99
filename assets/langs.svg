@@ -10,18 +10,18 @@
   </defs>
   <rect x="24" y="72" width="432" height="11" rx="5.5" fill="#21262d"/>
   <g clip-path="url(#round)"><g clip-path="url(#grow)">
-  <rect x="24.0" y="72" width="157.7" height="11" fill="#A97BFF"/>
-  <rect x="181.7" y="72" width="128.5" height="11" fill="#3178c6"/>
-  <rect x="310.2" y="72" width="64.6" height="11" fill="#3572A5"/>
-  <rect x="374.8" y="72" width="27.3" height="11" fill="#178600"/>
-  <rect x="402.1" y="72" width="20.7" height="11" fill="#e34c26"/>
-  <rect x="422.9" y="72" width="18.3" height="11" fill="#b07219"/>
+  <rect x="24.0" y="72" width="157.2" height="11" fill="#A97BFF"/>
+  <rect x="181.2" y="72" width="128.1" height="11" fill="#3178c6"/>
+  <rect x="309.4" y="72" width="64.4" height="11" fill="#3572A5"/>
+  <rect x="373.8" y="72" width="27.2" height="11" fill="#178600"/>
+  <rect x="401.0" y="72" width="20.7" height="11" fill="#e34c26"/>
+  <rect x="421.7" y="72" width="18.2" height="11" fill="#b07219"/>
   </g></g>
   <g opacity="0">
     <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.50s" fill="freeze"/>
     <circle cx="29" cy="112" r="5" fill="#A97BFF"/>
     <text x="42" y="116" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#e6edf3">Kotlin</text>
-    <text x="220" y="116" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#8b949e" text-anchor="end">36.5%</text>
+    <text x="220" y="116" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#8b949e" text-anchor="end">36.4%</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.58s" fill="freeze"/>
@@ -33,7 +33,7 @@
     <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.66s" fill="freeze"/>
     <circle cx="29" cy="138" r="5" fill="#3572A5"/>
     <text x="42" y="142" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#e6edf3">Python</text>
-    <text x="220" y="142" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#8b949e" text-anchor="end">15.0%</text>
+    <text x="220" y="142" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="13" fill="#8b949e" text-anchor="end">14.9%</text>
   </g>
   <g opacity="0">
     <animate attributeName="opacity" values="0;1" dur="0.4s" begin="0.74s" fill="freeze"/>
