@@ -1,60 +1,46 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg">
-  <img src="assets/hero-light.svg" alt="nikodem@automee — AI Automation Engineer building voice agents, LLM pipelines and process automation in Wrocław, Poland" width="100%">
-</picture>
-
-**I build automations that run without anyone watching them.** If a process is eating your team's time, it can probably be one of them — [nikodem@automee.pl](mailto:nikodem@automee.pl) · [automee.pl](https://automee.pl) · [github.com/NikodemJachec99](https://github.com/NikodemJachec99)
-
-### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-about.svg"><img src="assets/cmd-about-light.svg" alt="$ ./whoami --verbose" width="100%"></picture>
-
-```console
-builds       LLM pipelines, voice agents, business process automation
-             see `man architecture` below for how
-
-hardware     AEROS — a wearable ECG on nRF52840 Sense, ADS1292, BQ25185
-studies      Medical Informatics, Wrocław University of Science and Technology
-             an engineering degree taught entirely in English
-club         KN BioAddMed — additive manufacturing for medical applications
-after-hours  LoRA fine-tuning on FLUX and Stable Diffusion, Kohya_ss on an RTX 4070
-
-note         Commercial work lives in private client repos and n8n instances.
-             The public repos below are university coursework — different
-             stack, different era.
-```
-
-### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-stack.svg"><img src="assets/cmd-stack-light.svg" alt="$ cat stack.json" width="100%"></picture>
+**I build automations that run without anyone watching them.** If a process is eating your team's time, it can probably be one of them — [nikodem@automee.pl](mailto:nikodem@automee.pl) · [automee.pl](https://automee.pl)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg">
-  <img src="assets/stack-light.svg" alt="stack.json listing OpenAI Realtime, Gemini, Vertex AI, ElevenLabs, Deepgram, DeepL, Twilio ConversationRelay, FreeSWITCH, Asterisk, SIP B2BUA, Supabase Vector Store, Python, FastAPI, NestJS, Node.js, PostgreSQL with RLS, Redis, Neo4j, Next.js, TypeScript, Flutter, n8n, MCP, GoHighLevel, Zapier, Docker, Kubernetes, nginx, Linux, CUDA, nRF52840 Sense, ADS1292 and BQ25185" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/terminal.svg">
+  <img src="assets/terminal-light.svg" alt="Terminal session for nikodem@automee — an AI Automation Engineer in Wrocław, Poland, building voice agents on Twilio and FreeSWITCH, LLM pipelines on OpenAI and Gemini, multi-tenant n8n orchestration, FastAPI and NestJS backends on PostgreSQL, and AEROS, a wearable ECG on nRF52840. Studying Medical Informatics at Wrocław University of Science and Technology." width="100%">
 </picture>
 
-<!-- stack:begin -->
+<!-- session:begin -->
 
 <details>
-<summary>stack.json as text</summary>
+<summary>Read the session as text</summary>
 
-```json
+```console
+$ neofetch
+
+role         AI Automation Engineer
+builds       voice agents · LLM pipelines · process automation
+stack        n8n · FastAPI · NestJS · PostgreSQL · Docker · k8s
+ai           OpenAI Realtime · Gemini · ElevenLabs · Deepgram
+hardware     AEROS — wearable ECG on nRF52840, ADS1292, BQ25185
+studies      Medical Informatics @ Wrocław Univ. of Science and Tech.
+club         KN BioAddMed — additive manufacturing for medicine
+after-hours  LoRA on FLUX / Stable Diffusion, Kohya_ss, RTX 4070
+location     Wrocław, Poland
+
+$ cat stack.json
+
 {
   "llm":        ["OpenAI Realtime", "Gemini", "Vertex AI"],
   "speech":     ["ElevenLabs", "Deepgram", "DeepL"],
-  "voice":      ["Twilio ConversationRelay", "FreeSWITCH", "Asterisk", "SIP B2BUA"],
+  "voice":      ["Twilio ConversationRelay", "FreeSWITCH", "Asterisk",
+                 "SIP B2BUA"],
   "rag":        ["Supabase Vector Store"],
-  "backend":    ["Python", "FastAPI", "NestJS", "Node.js", "PostgreSQL + RLS", "Redis", "Neo4j"],
+  "backend":    ["Python", "FastAPI", "NestJS", "Node.js",
+                 "PostgreSQL + RLS", "Redis", "Neo4j"],
   "frontend":   ["Next.js", "TypeScript", "Flutter"],
   "automation": ["n8n", "MCP", "GoHighLevel", "Zapier"],
   "infra":      ["Docker", "Kubernetes", "nginx", "Linux", "CUDA"],
   "embedded":   ["nRF52840 Sense", "ADS1292", "BQ25185"]
 }
-```
 
-</details>
+$ man architecture
 
-<!-- stack:end -->
-
-### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-patterns.svg"><img src="assets/cmd-patterns-light.svg" alt="$ man architecture" width="100%"></picture>
-
-```console
 ARCHITECTURE(7)      Miscellaneous Information Manual      ARCHITECTURE(7)
 
 NAME
@@ -87,75 +73,64 @@ NOTES
      Docker and nginx are in production. Scaling n8n across Docker Swarm
      and Kubernetes is a designed path, not a deployment yet.
 
-Nikodem Jachec                 2026-08                     ARCHITECTURE(7)
-```
+Nikodem Jachec                  2026-08                  ARCHITECTURE(7)
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-projects.svg"><img src="assets/cmd-projects-light.svg" alt="$ ./projects --list" width="100%"></picture>
+$ ./projects --list
 
-```console
-drwx------   aeros/                                              private
-             Wearable ECG recorder. An ADS1292 analog front-end captures
-             the electrode signal, an nRF52840 Sense Plus runs the device,
-             and a BQ25185 handles power and charging. The hardware side
-             of what I study on Medical Informatics.
+drwx------   aeros/                  private
+             Wearable ECG recorder. An ADS1292 analog front-end captures the
+             electrode signal, an nRF52840 Sense Plus runs the device, and a
+             BQ25185 handles power and charging. The hardware side of what I
+             study on Medical Informatics.
 
-drwxr-xr-x   smart-campus-pwr/                                    public
+drwxr-xr-x   smart-campus-pwr/       public
              Android app for students at Wrocław University of Science and
              Technology — everyday campus business gathered in one place,
              instead of bouncing between five separate university systems.
 
-drwx------   neurodiet-ai/                                       private
-             Flutter app that puts an LLM behind meal planning. It reads
-             what you actually eat and adapts, rather than handing you a
-             static calorie table.
+drwx------   neurodiet-ai/           private
+             Flutter app that puts an LLM behind meal planning. It reads what
+             you actually eat and adapts, rather than handing you a static
+             calorie table.
 
-drwx------   ai-doktor/                                          private
-             Web-based medical assistant built on an LLM. It runs the
-             initial interview and turns loose symptoms into something
-             structured. Triage support, not a diagnosis.
-```
+drwx------   ai-doktor/              private
+             Web-based medical assistant built on an LLM. It runs the initial
+             interview and turns loose symptoms into something structured.
+             Triage support, not a diagnosis.
 
-[`smart-campus-pwr`](https://github.com/NikodemJachec99/Smart_Campus_PWR) is public and readable — the other three are private.
+$ git log --stat
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-stats.svg"><img src="assets/cmd-stats-light.svg" alt="$ git log --stat" width="100%"></picture>
+  contributions (last year)      675
+  commits (last year)            666
+  public repos                    12
+  languages used                  12
 
-<div align="center">
+  Kotlin        36.2%
+  TypeScript    29.5%
+  Python        14.8%
+  C#             6.3%
+  HTML           4.8%
+  Java           4.2%
 
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/stats.svg">
-    <img src="assets/stats-light.svg" alt="GitHub statistics: contributions and commits over the last year, public repository count and number of languages used" width="415">
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/langs.svg">
-    <img src="assets/langs-light.svg" alt="Most used languages across public repositories, as a proportional bar with percentages" width="415">
-  </picture>
+Public repositories only — the n8n, FastAPI and Twilio voice work
+sits in private client repos.
 
-  <br>
-  <sub>The mix above is public work — mostly Android and university projects. The n8n, FastAPI and Twilio voice work sits in private repos.</sub>
-  <br><br>
+$ mail -s "hello" nikodem@automee.pl
 
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NikodemJachec99/NikodemJachec99/output/snake-dark.svg">
-    <img src="https://raw.githubusercontent.com/NikodemJachec99/NikodemJachec99/output/snake.svg" alt="A snake travelling across the contribution grid, eating each day's square" width="100%">
-  </picture>
-
-</div>
-
-### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-contact.svg"><img src="assets/cmd-contact-light.svg" alt="$ mail -s hello nikodem@automee.pl" width="100%"></picture>
-
-```console
 email        nikodem@automee.pl
 company      automee.pl
 github       github.com/NikodemJachec99
 studies      medinf.pwr.edu.pl
 club         github.com/BioAddMed
 location     Wrocław, Poland
-```
 
-[**nikodem@automee.pl**](mailto:nikodem@automee.pl) &nbsp;·&nbsp; [automee.pl](https://automee.pl) &nbsp;·&nbsp; [Medical Informatics](https://medinf.pwr.edu.pl/) &nbsp;·&nbsp; [KN BioAddMed](https://github.com/BioAddMed)
-
-```console
 $ logout
 
 Connection to nikodem closed.
 ```
+
+</details>
+
+<!-- session:end -->
+
+[**nikodem@automee.pl**](mailto:nikodem@automee.pl) &nbsp;·&nbsp; [automee.pl](https://automee.pl) &nbsp;·&nbsp; [Medical Informatics](https://medinf.pwr.edu.pl/) &nbsp;·&nbsp; [KN BioAddMed](https://github.com/BioAddMed) &nbsp;·&nbsp; [`smart-campus-pwr`](https://github.com/NikodemJachec99/Smart_Campus_PWR)

@@ -32,8 +32,10 @@ export const CW_EM = 0.6;
 export const dark = {
   name: "dark",
   suffix: "",
-  bg: "#0d1117",
-  chrome: "#161b22",
+  // #161b22 to powierzchnia, którą GitHub maluje bloki kodu w ciemnym motywie —
+  // panel hero i blok ```console pod nim mają czytać się jako jedno okno.
+  bg: "#161b22",
+  chrome: "#21262d",
   border: "#30363d",
   rule: "#21262d",
   track: "#21262d",
