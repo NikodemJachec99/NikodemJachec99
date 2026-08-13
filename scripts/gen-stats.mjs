@@ -1,14 +1,21 @@
 /**
- * Generuje assets/stats.svg i assets/langs.svg z danych GitHub GraphQL.
+ * Generuje karty statystyk z danych GitHub GraphQL, po dwa warianty każdej:
  *
- * Powód istnienia: publiczna instancja github-readme-stats regularnie zwraca 503,
- * co zamienia karty na profilu w połamane obrazki. Te SVG leżą w repo, więc
- * ładują się zawsze — odświeża je workflow na tym samym harmonogramie co węża.
+ *   assets/stats.svg   assets/stats-light.svg
+ *   assets/langs.svg   assets/langs-light.svg
+ *
+ * Powód istnienia: publiczna instancja github-readme-stats regularnie zwraca
+ * 503, co zamienia karty na profilu w połamane obrazki. Te SVG leżą w repo,
+ * więc ładują się zawsze — odświeża je workflow co 12 h.
+ *
+ * Oba warianty powstają z jednego pobrania danych. Osobne wywołania per motyw
+ * oznaczałyby dwa zapytania do API, których wyniki mogłyby się różnić.
  *
  * Użycie: GITHUB_TOKEN=... LOGIN=NikodemJachec99 node scripts/gen-stats.mjs
  */
 
 import { writeFileSync, mkdirSync } from "node:fs";
+import { MONO, TYPE, THEMES, esc, escAttr } from "./theme.mjs";
 
 const TOKEN = process.env.GITHUB_TOKEN;
 const LOGIN = process.env.LOGIN || "NikodemJachec99";
@@ -17,20 +24,10 @@ if (!TOKEN) {
   process.exit(1);
 }
 
-// Paleta zgodna z assets/header.svg (GitHub dark).
-const C = {
-  bg: "#0d1117",
-  border: "#30363d",
-  accent: "#58a6ff",
-  text: "#e6edf3",
-  muted: "#8b949e",
-  track: "#21262d",
-};
-
-const MONO = "ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace";
-
-const esc = (s) =>
-  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const W = 480;
+const H = 220;
+const PAD = 24; // karty mają własne płótno 480 i siedzą w wyśrodkowanym divie,
+//                 więc nie należą do kolumny promptów wyznaczonej przez theme.PAD
 
 async function gql(query, variables) {
   const res = await fetch("https://api.github.com/graphql", {
@@ -96,8 +93,7 @@ async function collect() {
 
   // Notebooki zapisują wyjścia komórek (obrazy w base64) wewnątrz pliku, więc
   // ich rozmiar w bajtach nie ma nic wspólnego z ilością napisanego kodu —
-  // jeden notebook potrafi przebić cały resztę repozytoriów. Liczenie ich
-  // zniekształcałoby wykres, więc wypadają.
+  // jeden notebook potrafi przebić resztę repozytoriów razem wziętą.
   const EXCLUDED = new Set(["Jupyter Notebook"]);
 
   const bytes = new Map();
@@ -116,7 +112,7 @@ async function collect() {
     .map(([name, size]) => ({
       name,
       pct: (size / total) * 100,
-      color: colors.get(name) || C.accent,
+      color: colors.get(name) || "#58a6ff",
     }));
 
   const cc = user.contributionsCollection;
@@ -133,17 +129,18 @@ async function collect() {
   };
 }
 
-function card(inner, w = 480, h = 220, title, label) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="${esc(label)}">
-  <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="10" fill="${C.bg}" stroke="${C.border}" stroke-width="1.5"/>
-  <text x="24" y="38" font-family="${MONO}" font-size="15" font-weight="600" fill="${C.accent}">${esc(title)}</text>
-  <line x1="24" y1="52" x2="${w - 24}" y2="52" stroke="${C.border}" stroke-width="1"/>
+function card(inner, title, label, t) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escAttr(label)}">
+  <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="10" fill="${t.bg}" stroke="${t.border}" stroke-width="1.5"/>
+  <text x="${PAD}" y="38" font-family="${MONO}" font-size="15" font-weight="600" fill="${t.accent}">${esc(title)}</text>
+  <line x1="${PAD}" y1="52" x2="${W - PAD}" y2="52" stroke="${t.rule}" stroke-width="1"/>
 ${inner}
 </svg>
 `;
 }
 
-function statsSvg(d) {
+function statsSvg(d, t) {
+  const LH = 26;
   // Wiersze o wartości 0 są pomijane — "Stars earned: 0" na profilu szkodzi
   // bardziej, niż pomaga. Pojawią się same, gdy będzie co pokazać.
   const rows = [
@@ -157,30 +154,31 @@ function statsSvg(d) {
     ["Followers", d.followers],
   ].filter(([, v]) => v > 0);
 
-  const startY = 82 + Math.max(0, 6 - rows.length) * 11;
+  const startY = 52 + (H - 52 - (rows.length - 1) * LH) / 2 + 6;
   const inner = rows
     .map(([label, value], i) => {
-      const y = startY + i * 23;
-      const delay = (0.15 + i * 0.09).toFixed(2);
+      const y = startY + i * LH;
+      const begin = (0.15 + i * 0.09).toFixed(2);
       return `  <g opacity="0">
-    <animate attributeName="opacity" values="0;1" dur="0.45s" begin="${delay}s" fill="freeze"/>
-    <text x="24" y="${y}" font-family="${MONO}" font-size="13" fill="${C.muted}">${esc(label)}</text>
-    <text x="456" y="${y}" font-family="${MONO}" font-size="13" font-weight="600" fill="${C.text}" text-anchor="end">${esc(value)}</text>
+    <animate attributeName="opacity" values="0;1" dur="0.45s" begin="${begin}s" fill="freeze"/>
+    <text x="${PAD}" y="${y}" font-family="${MONO}" font-size="${TYPE.card}" fill="${t.dim}">${esc(label)}</text>
+    <text x="${W - PAD}" y="${y}" font-family="${MONO}" font-size="${TYPE.card}" font-weight="600" fill="${t.fg}" text-anchor="end">${esc(value)}</text>
   </g>`;
     })
     .join("\n");
-  return card(inner, 480, 220, "GitHub Stats", `GitHub statistics for ${LOGIN}`);
+
+  return card(inner, "GitHub Stats", `GitHub statistics for ${LOGIN}`, t);
 }
 
-function langsSvg(d) {
-  const X = 24;
-  const W = 432;
-  let cx = X;
+function langsSvg(d, t) {
+  const BAR_W = W - PAD * 2; // 432 — kończy się dokładnie tam, gdzie linia nagłówka
+  const COL = 232;
+  let cx = PAD;
 
   const bar = d.langs
     .map((l) => {
-      const w = Math.max((l.pct / 100) * W, 2);
-      const seg = `  <rect x="${cx.toFixed(1)}" y="72" width="${w.toFixed(1)}" height="11" fill="${l.color}"/>`;
+      const w = Math.max((l.pct / 100) * BAR_W, 2);
+      const seg = `  <rect x="${cx.toFixed(1)}" y="84" width="${w.toFixed(1)}" height="11" fill="${l.color}"/>`;
       cx += w;
       return seg;
     })
@@ -188,42 +186,42 @@ function langsSvg(d) {
 
   const legend = d.langs
     .map((l, i) => {
-      const col = i % 2;
-      const row = Math.floor(i / 2);
-      const x = X + col * 218;
-      const y = 116 + row * 26;
-      const delay = (0.5 + i * 0.08).toFixed(2);
+      const x = PAD + (i % 2) * COL;
+      const y = 128 + Math.floor(i / 2) * 28;
+      const begin = (0.5 + i * 0.08).toFixed(2);
       return `  <g opacity="0">
-    <animate attributeName="opacity" values="0;1" dur="0.4s" begin="${delay}s" fill="freeze"/>
-    <circle cx="${x + 5}" cy="${y - 4}" r="5" fill="${l.color}"/>
-    <text x="${x + 18}" y="${y}" font-family="${MONO}" font-size="13" fill="${C.text}">${esc(l.name)}</text>
-    <text x="${x + 196}" y="${y}" font-family="${MONO}" font-size="13" fill="${C.muted}" text-anchor="end">${l.pct.toFixed(1)}%</text>
+    <animate attributeName="opacity" values="0;1" dur="0.4s" begin="${begin}s" fill="freeze"/>
+    <circle cx="${x + 4}" cy="${y - 5}" r="4" fill="${l.color}"/>
+    <text x="${x + 18}" y="${y}" font-family="${MONO}" font-size="${TYPE.card}" fill="${t.fg}">${esc(l.name)}</text>
+    <text x="${x + 200}" y="${y}" font-family="${MONO}" font-size="${TYPE.card}" fill="${t.dim}" text-anchor="end">${l.pct.toFixed(1)}%</text>
   </g>`;
     })
     .join("\n");
 
   const inner = `  <defs>
-    <clipPath id="grow"><rect x="${X}" y="72" width="0" height="11" rx="5.5">
-      <animate attributeName="width" values="0;${W}" dur="1s" begin="0.2s" fill="freeze"/>
+    <clipPath id="grow"><rect x="${PAD}" y="84" width="0" height="11" rx="5.5">
+      <animate attributeName="width" values="0;${BAR_W}" dur="1s" begin="0.2s" fill="freeze"/>
     </rect></clipPath>
-    <clipPath id="round"><rect x="${X}" y="72" width="${W}" height="11" rx="5.5"/></clipPath>
+    <clipPath id="round"><rect x="${PAD}" y="84" width="${BAR_W}" height="11" rx="5.5"/></clipPath>
   </defs>
-  <rect x="${X}" y="72" width="${W}" height="11" rx="5.5" fill="${C.track}"/>
+  <rect x="${PAD}" y="84" width="${BAR_W}" height="11" rx="5.5" fill="${t.track}"/>
   <g clip-path="url(#round)"><g clip-path="url(#grow)">
 ${bar}
   </g></g>
 ${legend}`;
 
-  return card(inner, 480, 220, "Most Used Languages", `Most used languages for ${LOGIN}`);
+  return card(inner, "Most Used Languages", `Most used languages for ${LOGIN}`, t);
 }
 
 const data = await collect();
 mkdirSync("assets", { recursive: true });
-writeFileSync("assets/stats.svg", statsSvg(data));
-writeFileSync("assets/langs.svg", langsSvg(data));
+for (const t of THEMES) {
+  writeFileSync(`assets/stats${t.suffix}.svg`, statsSvg(data, t));
+  writeFileSync(`assets/langs${t.suffix}.svg`, langsSvg(data, t));
+}
 
 console.log(
-  `OK  commits=${data.commits} prs=${data.prs} issues=${data.issues} ` +
-    `stars=${data.stars} repos=${data.repos} followers=${data.followers}`
+  `OK  contributions=${data.contributions} commits=${data.commits} repos=${data.repos} ` +
+    `languages=${data.languages} prs=${data.prs} issues=${data.issues} stars=${data.stars} followers=${data.followers}`
 );
 console.log("    " + data.langs.map((l) => `${l.name} ${l.pct.toFixed(1)}%`).join(", "));

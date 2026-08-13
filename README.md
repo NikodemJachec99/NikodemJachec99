@@ -1,31 +1,61 @@
-<img src="assets/hero.svg" alt="nikodem@automee — neofetch" width="100%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero.svg">
+  <img src="assets/hero-light.svg" alt="nikodem@automee — AI Automation Engineer building voice agents, LLM pipelines and process automation in Wrocław, Poland" width="100%">
+</picture>
 
-<br>
+**I build automations that run without anyone watching them.** If a process is eating your team's time, it can probably be one of them — [nikodem@automee.pl](mailto:nikodem@automee.pl) · [automee.pl](https://automee.pl) · [github.com/NikodemJachec99](https://github.com/NikodemJachec99)
 
-<img src="assets/cmd-about.svg" alt="$ ./whoami --verbose" width="100%">
-
-- 🤖 &nbsp;**AI pipelines and agent systems** — structured output constrained by JSON Schema, tool calling, RAG on Supabase Vector Store, embeddings from Vertex AI
-- 📞 &nbsp;**Voice agents over the phone** — Twilio ConversationRelay, SIP B2BUA on FreeSWITCH, real-time STT with Deepgram Nova-3 and TTS with ElevenLabs
-- ⚙️ &nbsp;**Multi-tenant n8n** as the orchestration layer, wired into GoHighLevel, Baselinker, Zapier, Copart, OneDrive and Google Drive
-- 🗄️ &nbsp;**Backend** on FastAPI and NestJS, PostgreSQL with **RLS**, Redis and nginx — all containerised
-- 📱 &nbsp;**Offline-first Flutter** with idempotent sync via `client_uuid` — the app works with no network and never duplicates data on retry
-- 🩺 &nbsp;**AEROS** — a wearable ECG built on nRF52840 Sense Plus, ADS1292 and BQ25185
-- 🎓 &nbsp;Studying **[Medical Informatics](https://medinf.pwr.edu.pl/)** at Wrocław University of Science and Technology — an engineering degree taught entirely in English
-- 🔬 &nbsp;Member of **[KN BioAddMed](https://github.com/BioAddMed)** — a student research club working on additive manufacturing for medical applications
-- 🎨 &nbsp;After hours: **LoRA fine-tuning** on FLUX and Stable Diffusion — Kohya_ss locally on an RTX 4070, FluxGym in Colab
-
-<br>
-
-<img src="assets/cmd-stack.svg" alt="$ cat stack.json" width="100%">
-
-<img src="assets/stack.svg" alt="Stack as a JSON file" width="100%">
-
-<br>
-
-<img src="assets/cmd-patterns.svg" alt="$ man architecture" width="100%">
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-about.svg"><img src="assets/cmd-about-light.svg" alt="$ ./whoami --verbose" width="100%"></picture>
 
 ```console
-ARCHITECTURE(7)              Nikodem Jachec               ARCHITECTURE(7)
+builds       LLM pipelines, voice agents, business process automation
+             see `man architecture` below for how
+
+hardware     AEROS — a wearable ECG on nRF52840 Sense, ADS1292, BQ25185
+studies      Medical Informatics, Wrocław University of Science and Technology
+             an engineering degree taught entirely in English
+club         KN BioAddMed — additive manufacturing for medical applications
+after-hours  LoRA fine-tuning on FLUX and Stable Diffusion, Kohya_ss on an RTX 4070
+
+note         Commercial work lives in private client repos and n8n instances.
+             The public repos below are university coursework — different
+             stack, different era.
+```
+
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-stack.svg"><img src="assets/cmd-stack-light.svg" alt="$ cat stack.json" width="100%"></picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack.svg">
+  <img src="assets/stack-light.svg" alt="stack.json listing OpenAI Realtime, Gemini, Vertex AI, ElevenLabs, Deepgram, DeepL, Twilio ConversationRelay, FreeSWITCH, Asterisk, SIP B2BUA, Supabase Vector Store, Python, FastAPI, NestJS, Node.js, PostgreSQL with RLS, Redis, Neo4j, Next.js, TypeScript, Flutter, n8n, MCP, GoHighLevel, Zapier, Docker, Kubernetes, nginx, Linux, CUDA, nRF52840 Sense, ADS1292 and BQ25185" width="100%">
+</picture>
+
+<!-- stack:begin -->
+
+<details>
+<summary>stack.json as text</summary>
+
+```json
+{
+  "llm":        ["OpenAI Realtime", "Gemini", "Vertex AI"],
+  "speech":     ["ElevenLabs", "Deepgram", "DeepL"],
+  "voice":      ["Twilio ConversationRelay", "FreeSWITCH", "Asterisk", "SIP B2BUA"],
+  "rag":        ["Supabase Vector Store"],
+  "backend":    ["Python", "FastAPI", "NestJS", "Node.js", "PostgreSQL + RLS", "Redis", "Neo4j"],
+  "frontend":   ["Next.js", "TypeScript", "Flutter"],
+  "automation": ["n8n", "MCP", "GoHighLevel", "Zapier"],
+  "infra":      ["Docker", "Kubernetes", "nginx", "Linux", "CUDA"],
+  "embedded":   ["nRF52840 Sense", "ADS1292", "BQ25185"]
+}
+```
+
+</details>
+
+<!-- stack:end -->
+
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-patterns.svg"><img src="assets/cmd-patterns-light.svg" alt="$ man architecture" width="100%"></picture>
+
+```console
+ARCHITECTURE(7)      Miscellaneous Information Manual      ARCHITECTURE(7)
 
 NAME
      architecture — the patterns I build with
@@ -56,11 +86,11 @@ EVENT-DRIVEN
 NOTES
      Docker and nginx are in production. Scaling n8n across Docker Swarm
      and Kubernetes is a designed path, not a deployment yet.
+
+Nikodem Jachec                 2026-08                     ARCHITECTURE(7)
 ```
 
-<br>
-
-<img src="assets/cmd-projects.svg" alt="$ ls -la ~/projects" width="100%">
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-projects.svg"><img src="assets/cmd-projects-light.svg" alt="$ ./projects --list" width="100%"></picture>
 
 ```console
 drwx------   aeros/                                              private
@@ -85,44 +115,47 @@ drwx------   ai-doktor/                                          private
              structured. Triage support, not a diagnosis.
 ```
 
-<br>
+[`smart-campus-pwr`](https://github.com/NikodemJachec99/Smart_Campus_PWR) is public and readable — the other three are private.
 
-<img src="assets/cmd-stats.svg" alt="$ git log --stat" width="100%">
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-stats.svg"><img src="assets/cmd-stats-light.svg" alt="$ git log --stat" width="100%"></picture>
 
 <div align="center">
-  <img height="190" src="assets/stats.svg" alt="GitHub stats">
-  <img height="190" src="assets/langs.svg" alt="Most used languages">
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stats.svg">
+    <img src="assets/stats-light.svg" alt="GitHub statistics: contributions and commits over the last year, public repository count and number of languages used" width="415">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/langs.svg">
+    <img src="assets/langs-light.svg" alt="Most used languages across public repositories, as a proportional bar with percentages" width="415">
+  </picture>
+
+  <br>
+  <sub>The mix above is public work — mostly Android and university projects. The n8n, FastAPI and Twilio voice work sits in private repos.</sub>
   <br><br>
-  <img height="190" src="https://streak-stats.demolab.com?user=NikodemJachec99&background=0D1117&border=30363D&stroke=30363D&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=C9D1D9&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=8B949E&border_radius=10" alt="Commit streak">
-  <br><br>
-  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=NikodemJachec99&custom_title=Contribution%20Activity&bg_color=0D1117&color=C9D1D9&title_color=58A6FF&line=58A6FF&point=3FB950&area=true&area_color=1F6FEB&hide_border=false&border_color=30363D&radius=10" alt="Contribution activity graph">
-  <br><br>
+
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/NikodemJachec99/NikodemJachec99/output/snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/NikodemJachec99/NikodemJachec99/output/snake.svg">
-    <img alt="Snake eating the contribution grid" src="https://raw.githubusercontent.com/NikodemJachec99/NikodemJachec99/output/snake.svg">
+    <img src="https://raw.githubusercontent.com/NikodemJachec99/NikodemJachec99/output/snake.svg" alt="A snake travelling across the contribution grid, eating each day's square" width="100%">
   </picture>
+
 </div>
 
-<br>
-
-<img src="assets/cmd-contact.svg" alt="$ mail -s hello nikodem@automee.pl" width="100%">
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/cmd-contact.svg"><img src="assets/cmd-contact-light.svg" alt="$ mail -s hello nikodem@automee.pl" width="100%"></picture>
 
 ```console
-email      nikodem@automee.pl
-github     github.com/NikodemJachec99
-studies    medinf.pwr.edu.pl
-club       github.com/BioAddMed
-location   Wrocław, Poland
+email        nikodem@automee.pl
+company      automee.pl
+github       github.com/NikodemJachec99
+studies      medinf.pwr.edu.pl
+club         github.com/BioAddMed
+location     Wrocław, Poland
 ```
 
-[**nikodem@automee.pl**](mailto:nikodem@automee.pl) &nbsp;·&nbsp; [Medical Informatics](https://medinf.pwr.edu.pl/) &nbsp;·&nbsp; [KN BioAddMed](https://github.com/BioAddMed)
-
-<br>
+[**nikodem@automee.pl**](mailto:nikodem@automee.pl) &nbsp;·&nbsp; [automee.pl](https://automee.pl) &nbsp;·&nbsp; [Medical Informatics](https://medinf.pwr.edu.pl/) &nbsp;·&nbsp; [KN BioAddMed](https://github.com/BioAddMed)
 
 ```console
 $ logout
 
-Got a process eating your team's time? It can probably be automated.
 Connection to nikodem closed.
 ```
