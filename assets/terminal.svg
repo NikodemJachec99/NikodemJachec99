@@ -158,7 +158,7 @@
     <text x="616" y="1866" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="11.5" fill="#8b949e" text-anchor="end">14.8%</text></g>
   <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="3.15s" fill="freeze"/><text x="24" y="1884" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="11.5" fill="#e6edf3">C#</text>
     <rect x="113.7" y="1876" width="300" height="8" rx="4" fill="#21262d"/>
-    <rect x="113.7" y="1876" width="0" height="8" rx="4" fill="#178600"><animate attributeName="width" values="0;18.8" dur="0.9s" begin="3.30s" fill="freeze"/></rect>
+    <rect x="113.7" y="1876" width="0" height="8" rx="4" fill="#7355dd"><animate attributeName="width" values="0;18.8" dur="0.9s" begin="3.30s" fill="freeze"/></rect>
     <text x="616" y="1884" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="11.5" fill="#8b949e" text-anchor="end">6.3%</text></g>
   <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="3.16s" fill="freeze"/><text x="24" y="1902" font-family="ui-monospace,'SF Mono',Menlo,Consolas,'Courier New',monospace" font-size="11.5" fill="#e6edf3">HTML</text>
     <rect x="113.7" y="1894" width="300" height="8" rx="4" fill="#21262d"/>
