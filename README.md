@@ -100,18 +100,18 @@ drwx------   ai-doktor/              private
 
 $ git log --stat
 
-  contributions (last year)      679
-  commits (last year)            665
+  contributions (last year)      683
+  commits (last year)            667
   public repos                    13
   languages used                  12
-  pull requests                    5
+  pull requests                    7
 
-  TypeScript    46.9%
-  Kotlin        24.4%
-  Python        12.0%
-  JavaScript     5.2%
-  C#             4.2%
-  HTML           3.2%
+  TypeScript    48.0%
+  Kotlin        23.8%
+  Python        11.7%
+  JavaScript     5.4%
+  C#             4.1%
+  HTML           3.1%
 
 Public repositories only — the n8n, FastAPI and Twilio voice work
 sits in private client repos.
