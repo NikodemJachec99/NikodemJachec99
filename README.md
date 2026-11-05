@@ -100,14 +100,14 @@ drwx------   ai-doktor/              private
 
 $ git log --stat
 
-  contributions (last year)      667
-  commits (last year)            609
-  public repos                    17
+  contributions (last year)      736
+  commits (last year)            611
+  public repos                    18
   languages used                  15
-  pull requests                   17
-  issues opened                   28
+  pull requests                   18
+  issues opened                   93
 
-  TypeScript    52.1%
+  TypeScript    51.9%
   Kotlin        21.6%
   Python        10.7%
   JavaScript     5.2%
